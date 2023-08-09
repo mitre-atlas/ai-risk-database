@@ -1,0 +1,94 @@
+# Note that this targets Compose V1, i.e. docker-compose
+# Tested with docker-compose version 1.24.1, build 4667896b
+
+# Ensure the following files exist:
+# - Secret files, as listed below
+# - Optionally, persisted data directories `data-mysql/` and `data-caddy/` (comment in the service volumes below)
+
+version: '3.3'
+
+secrets:
+  api_key:
+    # A string representing an API key client/server interaction
+    file: ./API_KEY.secret
+  db_password:
+    # A string representing the root database password
+    file: ./DB_PASSWORD
+
+services:
+
+  db:
+    image: mysql:8.0
+    # Disable strict mode to prevent default field values errors
+    command: mysqld --sql_mode=""
+    # entrypoint: [ '/bin/sh', '-c', 'MYSQL_ROOT_PASSWORD=$$(cat /run/secrets/db_password) mysqld --sql_mode=""' ]
+    environment:
+      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db_password
+      - MYSQL_INITDB_SKIP_TZINFO=1
+    ports:
+      - 3306:3306
+    secrets:
+      - db_password
+    # volumes:
+      # Custom directory for persisted data
+      # - ./data-mysql:/var/lib/mysql
+
+  init-database:
+    image: python:3.9-alpine
+    volumes:
+      - .:/src
+    working_dir: /src
+    # Install dependencies and initialize database and start-up tables (after waiting for the db to initialize)
+    command: sh -c "pip install pymysql[rsa] pyyaml==5.3.1 && sleep 2 && DB_PASSWORD=`cat /run/secrets/db_password` python -m scripts.init_tables"
+    environment:
+      DB_ENDPOINT: db # Database service name
+      DB_USER: root
+    depends_on:
+      - db
+    secrets:
+      - db_password
+
+
+  server:
+    build:
+      context: .
+      dockerfile: docker/server.Dockerfile
+    entrypoint: [ '/bin/sh', '-c', 'DB_PASSWORD=$$(cat /run/secrets/db_password) python -m server.api_server --host 0.0.0.0 --port 4445 --api_key_file /run/secrets/api_key' ]
+    environment:
+      DB_ENDPOINT: db # Database service name
+      DB_USER: root
+    ports:
+      - 4445:4445
+    depends_on:
+      - init-database
+      - db
+    secrets:
+      - api_key
+      - db_password
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ../docker/frontend.Dockerfile
+    entrypoint: [ '/bin/sh', '-c', 'export API_KEY=$$(cat /run/secrets/api_key); npm run dev -- -H 0.0.0.0' ] # TODO use yarn?
+    environment:
+      API_URL: http://server:4445/api
+    ports:
+      - 3000:3000
+    depends_on:
+      - server
+    secrets:
+      - api_key
+
+  proxy:
+    image: caddy:alpine
+    volumes:
+      # Note that this is a modified version of the Caddyfile to specify service names
+      - ./server/Caddyfile.dockercompose:/etc/caddy/Caddyfile
+      # Custom directory for persisted data
+      # - ./data-caddy:/data
+    ports:
+      - 8080:8080
+    depends_on:
+      - frontend
+      - server

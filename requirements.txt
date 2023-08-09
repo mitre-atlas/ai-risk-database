@@ -1,0 +1,25 @@
+datasets
+databases[aiomysql]
+docker
+huggingface-hub
+importlib-metadata
+msgpack
+numpy==1.23.4
+packageurl-python
+pandas
+PyGithub
+GitPython # need both of these?
+ghapi
+picklescan==0.0.9
+pillow
+python-dateutil
+pymysql
+pyyaml==6.0.1
+transformers
+tensorflow-cpu==2.11.0; sys_platform != 'darwin'
+tensorflow-macos==2.11.0; sys_platform == 'darwin'
+tokenizers
+torch
+tqdm
+types-PyYAML==6.0.12.6
+types-requests==2.28.11.13

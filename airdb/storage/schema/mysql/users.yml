@@ -1,0 +1,68 @@
+table: users
+fields:
+  - name: user_id
+    sql_type: VARCHAR(37) NOT NULL
+    python_type: str
+  - name: login
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: avatar_url
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: name
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: company
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: location
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: email
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: twitter_username
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: created_at
+    sql_type: DATETIME NOT NULL
+    python_type: str
+  - name: upvoted_reports
+    sql_type: JSON NOT NULL DEFAULT ('[]')
+    python_type: list
+  - name: downvoted_reports
+    sql_type: JSON NOT NULL DEFAULT ('[]')
+    python_type: list
+  - name: report_upvotes_received
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: report_downvotes_received
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: registered
+    sql_type: DATETIME DEFAULT CURRENT_TIMESTAMP
+    python_type: str
+  - name: terms_version
+    sql_type: INT DEFAULT NULL
+    python_type: int
+  - name: last_login
+    sql_type: DATETIME DEFAULT CURRENT_TIMESTAMP
+    python_type: str
+  - name: updated
+    sql_type: DATETIME DEFAULT CURRENT_TIMESTAMP
+    python_type: str
+  - name: comment_downvotes_received
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: comment_upvotes_received
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: downvoted_comments
+    sql_type: JSON NOT NULL DEFAULT ('[]')
+    python_type: list
+  - name: upvoted_comments
+    sql_type: JSON NOT NULL DEFAULT ('[]')
+    python_type: list
+
+primary_key: user_id
+secondary_key: login

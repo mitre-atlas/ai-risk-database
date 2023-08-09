@@ -1,0 +1,50 @@
+table: user_reports
+fields:
+  - name: report_id
+    sql_type: VARCHAR(39) NOT NULL
+    python_type: str
+  - name: purls
+    sql_type: JSON NOT NULL DEFAULT ('[]')
+    python_type: list
+  - name: user_id
+    sql_type: VARCHAR(37) NOT NULL
+    python_type: str
+  - name: created
+    sql_type: DATETIME DEFAULT CURRENT_TIMESTAMP
+    python_type: str
+  - name: updated
+    sql_type: DATETIME DEFAULT CURRENT_TIMESTAMP
+    python_type: str
+  - name: title
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: description
+    sql_type: TEXT NOT NULL
+    python_type: str
+  - name: reference_uris
+    sql_type: JSON NOT NULL DEFAULT ('[]')
+    python_type: list
+  - name: domain
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: category
+    sql_type: VARCHAR(255)
+    python_type: str
+  - name: subcategory
+    sql_type: VARCHAR(255)
+    python_type: str
+  - name: upvoted
+    sql_type: JSON NOT NULL DEFAULT ('[]')
+    python_type: list
+  - name: downvoted
+    sql_type: JSON NOT NULL DEFAULT ('[]')
+    python_type: list
+  - name: vulnerabilities
+    sql_type: JSON NOT NULL DEFAULT ('[]')
+    python_type: list
+  - name: comments
+    sql_type: JSON NOT NULL DEFAULT ('[]')
+    python_type: list
+
+primary_key: report_id
+# secondary_key: purl  # there can be multiple reports for a purl -- not unique

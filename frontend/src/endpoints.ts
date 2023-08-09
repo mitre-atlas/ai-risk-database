@@ -1,0 +1,12 @@
+export const GET_MODEL_INFO = "/model_info";
+export const TOP_REPORTS = "/top_reports";
+export const TOP_MODELS = "/top_models";
+export const VALIDATE_SEARCH_QUERY = "/validate_query";
+export const GET_REPORT = "/get_report";
+export const VOTE_REPORT = "/report_vote";
+export const GET_FILE_INFO = "/file_info";
+export const TOP_USERS = "/top_users";
+export const TOP_ORGS = "/top_orgs";
+export const SEARCH = "/search";
+export const RELATED_MODELS = "/similar";
+export const REGISTER_USER = "/register_user";

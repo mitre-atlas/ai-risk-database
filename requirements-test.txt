@@ -1,0 +1,8 @@
+pylint
+black
+isort
+pydocstyle
+mypy
+pytest
+IPython
+autoflake

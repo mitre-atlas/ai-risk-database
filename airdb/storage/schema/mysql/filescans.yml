@@ -1,0 +1,18 @@
+table: filescans
+fields:
+  - name: name
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: purls
+    sql_type: JSON NOT NULL DEFAULT ('[]')
+    python_type: list
+  - name: count
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: created
+    sql_type: DATETIME DEFAULT CURRENT_TIMESTAMP
+    python_type: str
+  - name: updated
+    sql_type: DATETIME DEFAULT CURRENT_TIMESTAMP
+    python_type: str
+primary_key: name

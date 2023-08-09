@@ -1,0 +1,3 @@
+#!/bin/bash
+files=$(list_files)
+format_files $files

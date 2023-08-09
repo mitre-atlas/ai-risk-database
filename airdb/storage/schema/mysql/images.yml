@@ -1,0 +1,18 @@
+table: images
+fields:
+  - name: image_id
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: b64image
+    sql_type: LONGTEXT NOT NULL
+    python_type: str
+  - name: encoding  # like image/png (optional)
+    sql_type: VARCHAR(255)
+    python_type: str
+  - name: user_id
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: created
+    sql_type: DATETIME DEFAULT CURRENT_TIMESTAMP
+    python_type: str
+primary_key: image_id

@@ -1,0 +1,22 @@
+# https://github.com/dbohdan/caddy-markdown-site
+# Copyright (c) 2021 D. Bohdan.  License: MIT.
+
+(common) {
+    header /* {
+        -Server
+    }
+}
+
+
+ {$DOMAIN:https://localhost:8080} {
+	encode gzip
+	reverse_proxy /api/* LB_ENDPOINTS {
+		# Python API backend
+		lb_policy	least_conn
+		health_path	/api/alive
+		health_interval	10s
+	} 
+
+	reverse_proxy localhost:3000 
+	import common
+}

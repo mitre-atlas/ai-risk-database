@@ -1,0 +1,16 @@
+#!/bin/bash
+# Exit with error if any commands fail
+set -eu
+ri_lint_config_path="lint/setup.cfg"
+echo "$@" | xargs pylint --rcfile=$(get_ri_pylintrc_path)
+echo -e "\033[38;2;0;128;0mNice job!\033[0m";
+echo "$@" | xargs isort --recursive --check-only --diff -sp=$ri_lint_config_path
+echo -e "\033[38;2;0;128;0mYou did it!\033[0m";
+echo "$@" | xargs black --check --diff
+echo -e "\033[38;2;0;128;0mFelicitations!\033[0m";
+# Do not run pydocstyle on tests directory
+pydoc_files=$(echo "$@" | tr " " "\n" | { grep -v '^tests/' || test $? = 1; }) 
+if ! [ -z "${pydoc_files}" ] ; then
+    echo $pydoc_files | xargs pydocstyle --config=$ri_lint_config_path
+fi
+echo -e "\033[38;2;0;128;0mWay to go, champ!\033[0m";

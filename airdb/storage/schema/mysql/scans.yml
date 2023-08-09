@@ -1,0 +1,80 @@
+table: scans
+fields:
+  - name: scan_id
+    sql_type: VARCHAR(37) NOT NULL
+    python_type: str
+  - name: purl
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: engine
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: version
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: security_total
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: security_pass
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: security_fail
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: security_warning
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: security_severe
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: ethics_total
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: ethics_pass
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: ethics_fail
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: ethics_warning
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: ethics_severe
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: performance_total
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: performance_pass
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: performance_fail
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: performance_warning
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: performance_severe
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: overall_total
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: overall_pass
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: overall_fail
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: overall_warning
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: overall_severe
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: created
+    sql_type: DATETIME DEFAULT CURRENT_TIMESTAMP
+    python_type: str
+
+primary_key: scan_id
+secondary_key: purl, engine, version

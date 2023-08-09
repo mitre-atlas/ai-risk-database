@@ -1,0 +1,99 @@
+table: model_info
+fields:
+  - name: purl
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: basepurl
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: name
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: owner
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: commithash
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: commitdate
+    sql_type: DATETIME
+    python_type: str
+  - name: repo_uri
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: commit_uri
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: reports
+    sql_type: JSON NOT NULL DEFAULT ('[]')
+    python_type: list
+  - name: scans
+    sql_type: JSON NOT NULL DEFAULT ('[]')
+    python_type: list
+  - name: vulnerabilities
+    sql_type: JSON NOT NULL DEFAULT ('[]')
+    python_type: list
+  - name: security_total
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: security_pass
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: security_fail
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: security_warning
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: security_severe
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: ethics_total
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: ethics_pass
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: ethics_fail
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: ethics_warning
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: ethics_severe
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: performance_total
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: performance_pass
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: performance_fail
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: performance_warning
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: performance_severe
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: overall_total
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: overall_pass
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: overall_fail
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: overall_warning
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: overall_severe
+    sql_type: INT NOT NULL DEFAULT 0
+    python_type: int
+  - name: updated
+    sql_type: DATETIME DEFAULT CURRENT_TIMESTAMP
+    python_type: str
+primary_key: purl

@@ -1,0 +1,13 @@
+table: sbom
+fields:
+  - name: purl
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: files
+    sql_type: JSON NOT NULL DEFAULT ('[]')
+    python_type: list
+  - name: created
+    sql_type: DATETIME DEFAULT CURRENT_TIMESTAMP
+    python_type: str
+
+primary_key: purl

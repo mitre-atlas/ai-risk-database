@@ -1,0 +1,21 @@
+table: user_comments
+fields:
+  - name: comment_id
+    sql_type: VARCHAR(40) NOT NULL
+    python_type: str
+  - name: user_id
+    sql_type: VARCHAR(37) NOT NULL
+    python_type: str
+  - name: created
+    sql_type: DATETIME DEFAULT CURRENT_TIMESTAMP
+    python_type: str
+  - name: text
+    sql_type: TEXT NOT NULL
+    python_type: str
+  - name: upvoted
+    sql_type: JSON NOT NULL DEFAULT ('[]')
+    python_type: list
+  - name: downvoted
+    sql_type: JSON NOT NULL DEFAULT ('[]')
+    python_type: list
+primary_key: comment_id

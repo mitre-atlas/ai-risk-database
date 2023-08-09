@@ -1,0 +1,10 @@
+#!/bin/bash
+# Exit with error if any commands fail
+set -eu
+files=$(list_diff_files)
+if [ -z "${files}" ]
+then
+    echo "No files in diff to lint."
+else
+    lint_files $files
+fi

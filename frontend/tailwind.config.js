@@ -1,0 +1,56 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    fontFamily: {
+      roboto: ["Roboto", "sans-serif"],
+      haffer: ["Haffer", "sans-serif"],
+    },
+    colors: {
+      primary: "#171f3c",
+      dark: "#000000",
+      "dark-navy": "#0b181e",
+      white: "#fff",
+      "wild-sand": "#f5f5f5",
+      "mine-shaft": "#262626",
+      athens: "#c6cbd2",
+      "oslo-gray": "#838b9b",
+      mercury: "#e8ecf3",
+      "light-gray": " #dfdfdf",
+      "shuttle-gray": "#5a606c",
+      "black-haze": "#e3e5e4",
+      "brand-blue": "#0129ff",
+      blue: "#012fff",
+      "darker-blue": "#012cff",
+      "blue-ribbon": "#166eff",
+      "transparent-gray": "rgba(223, 223, 223, 0.25)",
+      "secondary-dark-blue": "#2B6CD0",
+      "light-gray-2": "#D1D2D8",
+      "wild-sand-2": "#E6E6E6",
+      orange: "#FBA461",
+      transparent: "rgba(255,255,255,0)",
+      error: "#F44336",
+      "dark-gray": "#373E59",
+      "white-smoke": "#f5f7fa",
+      success: "#20A756",
+      bridesmaid: "#feefef",
+      "granny-apple": "#e5faeb",
+      "link-water": "#eaf0fa",
+    },
+    extend: {
+      gridTemplateColumns: {
+        "overview-columns": "2fr 1fr",
+        "list-item-columns": "66% 33%",
+        "homepage-hero-columns": "57% 43%",
+      },
+      boxShadow: {
+        cookieBanner: "0 0 50px rgba(17, 38, 51, 0.15)",
+      },
+      screens: {
+        sm: "600px",
+        "3xl": "1920px",
+      },
+    },
+  },
+  plugins: [require("@tailwindcss/typography")],
+};

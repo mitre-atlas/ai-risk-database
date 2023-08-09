@@ -1,0 +1,19 @@
+table: tags
+fields:
+  - name: tag
+    sql_type: VARCHAR(255)
+    python_type: str
+  - name: purls
+    sql_type: JSON NOT NULL DEFAULT ('[]')
+    python_type: list
+  - name: associations
+    sql_type: JSON NOT NULL DEFAULT ('{}')
+    python_type: dict
+  - name: created
+    sql_type: DATETIME DEFAULT CURRENT_TIMESTAMP
+    python_type: str
+  - name: updated
+    sql_type: DATETIME DEFAULT CURRENT_TIMESTAMP
+    python_type: str
+
+primary_key: tag

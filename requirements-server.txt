@@ -1,0 +1,15 @@
+aiohttp
+aiohttp_cors
+aiohttp_oauth2
+aiohttp_remotes
+async_lru
+python-json-logger
+numpy
+tqdm
+# Dependencies from requirements.txt / airdb
+# Fix version for Cython incompat as of 07/17: https://github.com/yaml/pyyaml/issues/601
+pyyaml==6.0.1
+databases[aiomysql]
+# Adding [rsa] to resolve
+# RuntimeError: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+pymysql[rsa]

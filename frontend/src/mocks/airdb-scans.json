@@ -1,0 +1,11 @@
+{
+  "scan_id": "scan-4c1a337cbe534b249432af276e9e5ffd",
+  "purl": "pkg:huggingface/09panesara/distilbert-base-uncased-finetuned-cola@f89a85cb8703676115912fffa55842f23eb981ab",
+  "engine": "rime",
+  "version": "rime-0.22.rc",
+  "created": "2014-06-06T17:22:38Z",
+  "security_score": { "total": 100, "pass": 99 },
+  "ethics_score": { "total": 24, "pass": 22 },
+  "performance_score": { "total": 12, "pass": 10 },
+  "overall_score": { "total": 136, "pass": 131 }
+}

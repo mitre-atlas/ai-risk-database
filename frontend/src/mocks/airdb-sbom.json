@@ -1,0 +1,12 @@
+{
+  "purl": "pkg:huggingface/09panesara/distilbert-base-uncased-finetuned-cola@f89a85cb8703676115912fffa55842f23eb981ab",
+  "files": [
+    {
+      "filename": "pytorch_model.bin",
+      "sha256": "aae4eae44eae4eae4eae4eae4eae4eae4eae",
+      "size": 0,
+      "artifacts": ["webbrowser.open", "np.array", "tqdm.tqdm"]
+    }
+  ],
+  "created": "2014-06-06T17:22:38Z"
+}

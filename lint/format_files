@@ -1,0 +1,4 @@
+#!/bin/bash
+ri_lint_config_path="lint/setup.cfg"
+echo "$@" | xargs isort -rc -sp=$ri_lint_config_path
+echo "$@" | xargs black

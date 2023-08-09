@@ -1,0 +1,9 @@
+{
+  "basepurl": "pkg:huggingface/09panesara/distilbert-base-uncased-finetuned-cola",
+  "uri": "https://huggingface.co/09panesara/distilbert-base-uncased-finetuned-cola",
+  "type": "huggingface or pytorch-hub",
+  "owner": "09panesarg",
+  "likes": 15,
+  "downloads": 24,
+  "created": "2014-06-06T17:22:38Z"
+}

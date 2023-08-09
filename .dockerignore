@@ -1,0 +1,5 @@
+venv
+docker
+.git
+**/data-mysql
+**/data-caddy

@@ -1,0 +1,24 @@
+{
+  "report_id": "report-4c1a337cbe534b249432af276e9e5ffd",
+  "purls": [
+    "pkg:huggingface/09panesara/distilbert-base-uncased-finetuned-cola@f89a85cb8703676115912fffa55842f23eb981ab"
+  ],
+  "user_id": "user-3d1a337cbe534b249432af276e9e5ffd",
+  "title": "Gender bias when pronouns are changed",
+  "description": "# Dataset Used\n`wino_bias`\n# Methodology\nSwapped pronouns",
+  "reference_uris": [
+    "https://twitter.com/d_feldman/status/1598932696004116480?s=20&t=7pjn0lbYadEEpHLMuG_w8Q",
+    "https://airisk.io/screenshots/report-4c1a337cbe534b249432af276e9e5ffd"
+  ],
+  "domain": "ethics",
+  "category": "bias/discrimination",
+  "subcategory": "group fairness",
+  "upvoted": [
+    ["user-3d1a337cbe534b249432af276e9e5ffd", "2023-01-09T16:15:24Z"]
+  ],
+  "downvoted": [
+    ["user-3d1a337cbe534b249432af276e9e5ffd", "2023-01-09T16:15:24Z"]
+  ],
+  "created": "2014-06-06T17:22:38Z",
+  "modified": "2021-06-06T17:22:38Z"
+}

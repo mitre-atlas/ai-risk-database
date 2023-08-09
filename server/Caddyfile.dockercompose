@@ -1,0 +1,24 @@
+# https://github.com/dbohdan/caddy-markdown-site
+# Copyright (c) 2021 D. Bohdan.  License: MIT.
+
+# Edited to specify docker-compose server service name and port
+
+(common) {
+    header /* {
+        -Server
+    }
+}
+
+
+ {$DOMAIN:https://localhost:8080} {
+	encode gzip
+	reverse_proxy /api/* http://server:4445 {
+		# Python API backend
+		lb_policy	least_conn
+		health_path	/api/alive
+		health_interval	60s
+	}
+
+	reverse_proxy frontend:3000
+	import common
+}

@@ -1,0 +1,31 @@
+table: sha256
+fields:
+  - name: sha256
+    sql_type: VARCHAR(64)
+    python_type: str
+  - name: ordered
+    sql_type: BOOL DEFAULT 0
+    python_type: bool
+  - name: count
+    sql_type: INT DEFAULT 0
+    python_type: int
+  - name: size
+    sql_type: INT DEFAULT 0
+    python_type: int
+  - name: purls
+    sql_type: JSON NOT NULL DEFAULT ('[]')
+    python_type: list
+  - name: filenames
+    sql_type: JSON NOT NULL DEFAULT ('{}')
+    python_type: dict
+  - name: artifacts
+    sql_type: JSON NOT NULL DEFAULT ('[]')
+    python_type: list
+  - name: created
+    sql_type: DATETIME DEFAULT CURRENT_TIMESTAMP
+    python_type: str
+  - name: updated
+    sql_type: DATETIME DEFAULT CURRENT_TIMESTAMP
+    python_type: str
+
+primary_key: sha256

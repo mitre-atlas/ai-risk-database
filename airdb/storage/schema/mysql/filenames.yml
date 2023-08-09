@@ -1,0 +1,24 @@
+table: filenames
+fields:
+  - name: filename
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: count
+    sql_type: INT
+    python_type: int
+  - name: artifacts
+    sql_type: JSON NOT NULL DEFAULT ('[]')
+    python_type: list
+  - name: sha256s
+    sql_type: JSON NOT NULL DEFAULT ('[]')
+    python_type: list
+  - name: purls
+    sql_type: JSON NOT NULL DEFAULT ('[]')
+    python_type: list
+  - name: created
+    sql_type: DATETIME DEFAULT CURRENT_TIMESTAMP
+    python_type: str
+  - name: updated
+    sql_type: DATETIME DEFAULT CURRENT_TIMESTAMP
+    python_type: str
+primary_key: filename

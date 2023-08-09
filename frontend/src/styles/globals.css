@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Haffer";
+  font-weight: 400;
+  src: url("/fonts/HafferXH/HafferXH-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Haffer";
+  font-weight: 500;
+  src: url("/fonts/HafferXH/HafferXH-Medium.ttf");
+}
+
+@font-face {
+  font-family: "Haffer";
+  font-weight: 600;
+  src: url("/fonts/HafferXH/HafferXH-SemiBold.ttf");
+}
+
+body {
+  @apply font-roboto text-primary text-base;
+}
+
+@layer components {
+  .h1 {
+    @apply font-haffer lg:text-5xl text-3xl leading-tight text-mine-shaft font-semibold;
+  }
+  .section-title {
+    @apply font-haffer text-3xl font-normal text-dark py-6 lg:px-0 px-6;
+  }
+  .primary-button {
+    @apply font-haffer py-3 px-6 border border-primary rounded-full text-sm text-primary w-fit m-0 transition
+    hover:text-white hover:bg-dark active:bg-dark active:text-white active:outline-4 active:outline active:outline-transparent-gray bg-white;
+  }
+  .white-button {
+    @apply font-haffer py-3 px-6 border border-white rounded-full text-sm text-white w-fit m-0 transition
+    hover:text-dark hover:bg-white active:bg-white active:text-dark active:outline-4 active:outline active:outline-transparent-gray;
+  }
+  .blue-button {
+    @apply font-haffer py-3 px-6 rounded-full text-sm text-white w-fit m-0 bg-brand-blue transition
+    disabled:bg-light-gray disabled:cursor-not-allowed
+    hover:text-white hover:bg-dark active:bg-dark active:text-white active:outline-4 active:outline active:outline-transparent-gray;
+  }
+  .transparent-white-button {
+    @apply white-button bg-transparent
+  }
+  .box {
+    @apply font-roboto bg-white p-6 w-full mb-2;
+  }
+  .box-title {
+    @apply font-roboto text-base text-dark pb-4;
+  }
+  .box-description {
+    @apply font-haffer text-dark text-sm opacity-50 pb-6;
+  }
+  .hero-gradient {
+    @apply bg-gradient-to-tr from-blue via-blue via-darker-blue to-blue-ribbon;
+  }
+  .header-gradient {
+    @apply bg-gradient-to-r from-darker-blue to-blue-ribbon;
+  }
+  .about-text {
+    @apply text-sm leading-6 text-shuttle-gray;
+  }
+}
+
+@layer swiper {
+  .swiper-button-next, .swiper-button-prev {
+    @apply text-wild-sand !important;    
+  }
+}

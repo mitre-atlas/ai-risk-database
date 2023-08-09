@@ -1,0 +1,64 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Frontend Node.js CI
+
+defaults:
+  run:
+    working-directory: frontend
+
+on:
+  push:
+    paths: ['frontend/**']
+    branches: [ "main" ]
+  pull_request:
+    paths: ['frontend/**']
+    branches: [ "main" ]
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v3    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'yarn'
+        cache-dependency-path: 'frontend/yarn.lock'
+    - run: yarn install --non-interactive --frozen-lockfile --production=false
+    - run: yarn test
+  
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v3    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'yarn'
+        cache-dependency-path: 'frontend/yarn.lock'
+    - run: yarn install --non-interactive --frozen-lockfile --production=false
+
+    - uses: actions/cache@v3
+      id: nextjs-cache # use this to check for `cache-hit` (`steps.nextjs-cache.outputs.cache-hit != 'true'`)
+      with:
+        path: frontend/.next/cache
+        key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+        restore-keys: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-
+
+    - run: yarn build

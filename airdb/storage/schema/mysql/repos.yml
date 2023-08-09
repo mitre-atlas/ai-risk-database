@@ -1,0 +1,42 @@
+table: repos
+fields:
+  - name: basepurl
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: uri
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: type
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: name
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: fullname
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: owner
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: reputation
+    sql_type: JSON NOT NULL DEFAULT ('{}')
+    python_type: dict
+  - name: repo_info
+    sql_type: JSON NOT NULL DEFAULT ('{}')
+    python_type: dict
+  - name: versions
+    sql_type: JSON NOT NULL DEFAULT ('{}') 
+    python_type: dict
+  - name: task
+    sql_type: VARCHAR(255) NOT NULL
+    python_type: str
+  - name: libraries
+    sql_type: JSON NOT NULL DEFAULT ('[]')
+    python_type: list
+  - name: created
+    sql_type: DATETIME DEFAULT CURRENT_TIMESTAMP
+    python_type: str
+
+primary_key: basepurl
+
+secondary_key: uri

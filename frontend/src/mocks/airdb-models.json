@@ -1,0 +1,9 @@
+{
+  "purl": "pkg:huggingface/09panesara/distilbert-base-uncased-finetuned-cola@f89a85cb8703676115912fffa55842f23eb981ab",
+  "url": "https://huggingface.co/09panesara/distilbert-base-uncased-finetuned-cola/commit/f89a85cb8703676115912fffa55842f23eb981ab",
+  "repository": "pkg:huggingface/09panesara/distilbert-base-uncased-finetuned-cola",
+  "version": "f89a85cb8703676115912fffa55842f23eb981ab",
+  "other_versions": ["123a85cb8703676123912fffa55842f23eb98123"],
+  "vulnerabilities": ["AVID-2022-V012", "CVE-2020-14343"],
+  "created": "2014-06-06T17:22:38Z"
+}

@@ -1,0 +1,14 @@
+table: user_examples
+fields:
+  - name: example_id
+    sql_type: VARCHAR(40) NOT NULL
+    python_type: str
+  - name: image
+    sql_type: MEDIUMBLOB
+    python_type: bytes
+  - name: report_id
+    sql_type: VARCHAR(39) NOT NULL
+    python_type: str
+
+primary_key: example_id
+secondary_key: report_id
